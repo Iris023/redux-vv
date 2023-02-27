@@ -3,23 +3,22 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-    cartItems: [],
+        cartItems: [],
     },
     reducers: {
-    addItemToCart: (state, action) => {
-        let alreadyInCart = state.cartItems.find(el => el.id === action.payload.id);
+        addItemToCart: (state, action) => {
+            let alreadyInCart = state.cartItems.find(el => el.itemId === action.payload.eachProduct.id);
+            
+            if (alreadyInCart) {
+                alreadyInCart.itemQuantity += action.payload.quantity
 
-        if (alreadyInCart) {
-            alert('Already in Cart')
-            //some code later
-
-        } else {
-            state.cartItems.push({
-                itemId: action.payload.eachProduct.id,
-                itemQuantity: action.payload.quantity
-            })
-    }
-},
+            } else {
+                state.cartItems.push({
+                    itemId: action.payload.eachProduct.id,
+                    itemQuantity: action.payload.quantity
+                })
+            }
+        },
     }
 })
 
