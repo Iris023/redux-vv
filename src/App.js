@@ -32,7 +32,6 @@ function App() {
           trigger: element.querySelector(".cartBlock"),
           start: "bottom 10",
           end: () => `+=${cartBlockHeight}`,
-          markers: true,
           scrub: true
         }
       }
