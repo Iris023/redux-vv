@@ -9,7 +9,7 @@ export const Products = () => {
     return (
         <div>
             <h1>Каталог</h1>
-            <div className="allProductsBlock">
+            <div>
                 {dataProducts
                 .filter(eachProduct => { 
                     if (selectedCategory === 'ВСЕ') return true;

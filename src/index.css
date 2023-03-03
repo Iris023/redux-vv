@@ -25,8 +25,7 @@ body {
   .App {
     position: relative;
     font-family: 'Comfortaa', cursive;
-    /* ИЗМЕНИТЬ ЦВЕТ */
-    /* color: red; */
+    color: #424242;
   }
 
   .filterBlock, .cartBlock, .allProductsBlock {
@@ -48,7 +47,8 @@ body {
 
   .allTheCategories {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .categoryButton {
@@ -79,17 +79,15 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
+    padding-bottom: 25px;
   }
 
   .cartBlock {    
     margin-left: 10px;
     width: 400px;
-    /* CHANGE LATER */
-    /* max-height: 80vh;
-    overflow: scroll; */
+    height: fit-content;
+    padding-bottom: 15px;
   }
-
 
   .cartHeader {
     display: flex;
@@ -97,14 +95,36 @@ body {
     align-items: center;
   }
 
+  .cartParent {
+    position: relative;
+  }
+
   .cartImg {
     height: 40px;
     margin-right: 10px;
   }
 
+  .cartLength {
+    position: absolute;
+    top: 18px;
+    left: -11px;
+    border: 1px solid #c42f37;
+    border-radius: 50%;
+    font-size: 10px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    background-color: #c63c43;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .cartItemBlock {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 15px;
     transition: all ease 0.7s;
 
@@ -118,7 +138,7 @@ body {
   }
 
   .cartItemText {
-    font-size: 12px;
+    font-size: 11px;
     margin: 0 10px;
   }
 
@@ -137,6 +157,7 @@ body {
 
   .allProductsBlock {
     width: 400px;
+    padding-bottom: 15px;
   }
   
 
@@ -211,4 +232,262 @@ body {
   .addToCartBtn:hover {
     background-color: #ecfadc;
     color: #3d935f;
+  }
+
+  .displayNone {
+    display: none;
+  }
+
+  .displayFlex {
+    display: flex;
+  }
+
+  .backToCartBtn {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid green;
+    border-radius: 50%;
+    background-color: #ecfadc;
+    width: 100px;
+    height: 100px;
+  }
+
+  .backToCartText {
+    font-size: 10px;
+  }
+
+  .backToCartImg {
+    width: 30px;
+    margin-left: -5px;
+  }
+
+  .backToCartTotalPrice {
+    font-size: 10px;
+    text-align: center;
+    height: 20px;
+    color: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+
+/* START TOOLTIP STYLES */
+  .main {
+    text-align: center;
+    right: 40px;
+    bottom: 100px;
+    position: fixed;
+  }
+  .main span {
+    padding: .5em 1em;
+    margin: .5em;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+  }
+
+  [tooltip] {
+    position: relative;
+  }
+
+  [tooltip]::before,
+  [tooltip]::after {
+    font-size: 11px; 
+    position: absolute;
+    display: none;
+    opacity: 0;
+  }
+  [tooltip]::before {
+    content: '';
+    border: 5px solid transparent; /* opinion 4 */
+    z-index: 1001; /* absurdity 1 */
+  }
+  [tooltip]::after {
+    content: attr(tooltip);
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 7px 10px;
+    border-radius: 10px;
+    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+    background: #333;
+    color: #fff;
+    z-index: 1000;
+  }
+  [tooltip]:hover::before,
+  [tooltip]:hover::after {
+    display: block;
+  }
+  [tooltip='']::before,
+  [tooltip='']::after {
+    display: none !important;
+  }
+
+
+  [tooltip][flow^="down"]::before {
+    top: 100%;
+    border-top-width: 0;
+    border-bottom-color: #333;
+  }
+  [tooltip][flow^="down"]::after {
+    top: calc(100% + 5px);
+  }
+  [tooltip][flow^="down"]::before,
+  [tooltip][flow^="down"]::after {
+    left: 50%;
+    transform: translate(-50%, .5em);
+  }
+
+
+  /* KEYFRAMES */
+  @keyframes tooltips-vert {
+    to {
+      opacity: .9;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  [tooltip]:not([flow]):hover::before,
+  [tooltip]:not([flow]):hover::after,
+
+  [tooltip][flow^="down"]:hover::before,
+  [tooltip][flow^="down"]:hover::after {
+    animation: tooltips-vert 300ms ease-out forwards;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  @media all and (max-width: 1000px) {
+    .filterBlock {
+      width: 96%;
+    }
+  }
+
+  @media all and (max-width: 870px) {
+    .cartBlock, .allProductsBlock {
+      width: 370px;
+    }
+
+    .categoryButton, h4 {
+      font-size: 15px;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+
+    .serving {
+      font-size: 11px;
+      margin-top: -15px;
+    }
+
+    .cartImg {
+      height: 35px;
+    }
+
+    .quantity {
+      font-size: 14px;
+    }
+
+    .counterBtn {
+      height: 22px;
+      margin: 0 5px;
+    }
+
+    .cartItemPrice {
+      font-size: 13px;
+    }
+  }
+
+  @media all and (max-width: 800px) {
+    .allTheCategories {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .cartBlock, .allProductsBlock {
+      width: 42%;
+      padding-top: 15px;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .productImage {
+      width: 90%;
+    }
+    
+    .categoryButton {
+      font-size: 13px;
+      margin: 5px 5px;
+    }
+
+    h4 {
+      font-size: 13px;
+    }
+
+    .cartLength {
+      left: -11px;
+      width: 17px;
+      height: 17px;
+    }
+
+    .cartItemBlock {
+      height: 50px;
+    }
+
+    .cartItemName {
+      margin: 0;
+      font-size: 10px;
+    }
+
+    .cartItemPrice {
+      font-size: 11px;
+      margin: 0 5px;
+    }
+
+    .productPrice {
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+
+  @media all and (max-width: 500px) {
+    .content {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .cartBlock, .allProductsBlock {
+      width: 70%;
+      padding-top: 5px;
+    }
+
+    .cartBlock {
+      margin-bottom: 30px;
+    }
+
+    .categoryButton {
+      padding: 5px 5px;
+      font-size: 10px;
+      font-weight: bold;
+    }
   }
