@@ -154,13 +154,11 @@ body {
     cursor: pointer;
   }
 
-
   .allProductsBlock {
     width: 400px;
     padding-bottom: 15px;
   }
   
-
   .productBlock {
     display: flex;
     flex-direction: column;
@@ -273,8 +271,6 @@ body {
     font-weight: bold;
   }
 
-
-/* START TOOLTIP STYLES */
   .main {
     text-align: center;
     right: 40px;
@@ -344,8 +340,6 @@ body {
     transform: translate(-50%, .5em);
   }
 
-
-  /* KEYFRAMES */
   @keyframes tooltips-vert {
     to {
       opacity: .9;
@@ -361,18 +355,6 @@ body {
     animation: tooltips-vert 300ms ease-out forwards;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-  
 
   @media all and (max-width: 1000px) {
     .filterBlock {

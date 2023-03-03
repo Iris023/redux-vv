@@ -9,7 +9,6 @@ export const EachProduct = ({eachProduct}) => {
 
     const addToCart = () => {
         dispatch(addItemToCart({eachProduct, quantity}));
-        // ПОД ВОПРОСОМ? если убрать - то можно dispatch написать прям на кнопке onClick () => {dispatch(...)}
         setQuantity(1);
     }
 

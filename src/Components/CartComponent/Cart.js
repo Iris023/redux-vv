@@ -15,7 +15,7 @@ export const Cart = () => {
             <h1>Корзина</h1>
         </span>
 
-        {cartItems.length > 0 ?  <h4 className="total">Сумма заказа: {totalPrice} руб.</h4> : <p>В корзине пока пусто</p>}
+        {cartItems.length > 0 ?  <h4>Сумма заказа: {totalPrice} руб.</h4> : <p>В корзине пока пусто</p>}
         {cartItems.map((cartItem, itemId) => <EveryCartItem key={itemId}cartItem={cartItem} />)}
     </div>)
 }
