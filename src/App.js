@@ -2,10 +2,7 @@ import './App.css';
 import { AllCategories } from './Components/FilterComponent/AllCategories';
 import { Cart } from './Components/CartComponent/Cart';
 import { Products } from './Components/ProductsComponent/Products';
-// import { BackToCart } from './Components/BackToCart';
-import { BackToCartCopy } from './Components/BackToCart copy';
-
-
+import { BackToCart } from './Components/BackToCart';
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,7 +14,6 @@ function App() {
 
   useEffect(() => { 
     const element = ref.current;
-    let cartBlockHeight = document.querySelector(".cartBlock").offsetHeight;
     gsap.fromTo(
       element.querySelector("#gsapTarget"),
       {
@@ -31,7 +27,7 @@ function App() {
         scrollTrigger: {
           trigger: element.querySelector(".cartBlock"),
           start: "bottom 10",
-          end: () => `+=${cartBlockHeight}`,
+          end: () => `+=${document.querySelector(".cartBlock").offsetHeight}`,
           scrub: true
         }
       }
@@ -52,10 +48,7 @@ function App() {
             <Cart />
           </div>
       </div>
-      <div >
-        {/* <BackToCart /> */}
-        <BackToCartCopy />
-      </div>
+      <BackToCart />
     </div>
   )
   }
